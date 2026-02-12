@@ -1,13 +1,12 @@
-const gallery = document.querySelector('.gallery');
+const nameInput = document.querySelector('#name-input');
+const nameOutput = document.querySelector('#name-output');
 
-const galleryMarkup = images
-  .map(
-    image => `
-      <li class="gallery__item">
-        <img class="gallery__img" src="${image.url}" alt="${image.alt}">
-      </li>
-    `
-  )
-  .join("");
+nameInput.addEventListener('input', () => {
+  const value = nameInput.value.trim();
 
-gallery.insertAdjacentHTML("beforeend", galleryMarkup);
+  if (value === '') {
+    nameOutput.textContent = 'Anonymous';
+  } else {
+    nameOutput.textContent = value;
+  }
+});
